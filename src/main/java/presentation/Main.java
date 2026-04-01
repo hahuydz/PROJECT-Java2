@@ -429,7 +429,7 @@ public class Main {
             ps.setInt(4, id);
 
             ps.executeUpdate();
-            System.out.println("✅ Updated!");
+            System.out.println(" Updated!");
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -553,7 +553,7 @@ public class Main {
 
             while (cartRS.next()) {
                 if (cartRS.getInt("stock") < cartRS.getInt("quantity")) {
-                    System.out.println("❌ Hết hàng!");
+                    System.out.println(" Hết hàng!");
                     con.rollback();
                     return;
                 }
@@ -601,7 +601,7 @@ public class Main {
             clear.executeUpdate();
 
             con.commit();
-            System.out.println("✅ Đặt hàng thành công!");
+            System.out.println(" Đặt hàng thành công!");
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -616,7 +616,7 @@ public class Main {
                     "SELECT o.id AS order_id, p.name, p.brand, p.storage, p.color, " +
                             "od.quantity, od.price " +
                             "FROM orders o " +
-                            "JOIN order_details od ON o.id = od.order_id " +   // ✅ FIX Ở ĐÂY
+                            "JOIN order_details od ON o.id = od.order_id " +  
                             "JOIN products p ON od.product_id = p.id " +
                             "WHERE o.user_id = ? " +
                             "ORDER BY o.id DESC"
@@ -679,7 +679,7 @@ public class Main {
             if (hasData) {
                 System.out.println("   → Tổng: " + Fomat.formatVND(total));
             } else {
-                System.out.println("❌ Bạn chưa có đơn hàng nào!");
+                System.out.println(" Bạn chưa có đơn hàng nào!");
             }
 
             line();
